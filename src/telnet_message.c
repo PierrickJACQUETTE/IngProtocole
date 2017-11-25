@@ -1,6 +1,6 @@
 #include "telnet_message.h"
 
-void commande(unsigned char * message, int* messageConnu, int* sb){
+void commande(unsigned char* message, int* messageConnu, int* sb){
     *sb = 0;
     switch(*message){
         case 240:
@@ -67,12 +67,8 @@ void print_message(unsigned char** message, int* i){
          print_option(&((*message)[*i]), i, &option);
          *i = *i +1;
          printf("   ");
-         if(sb == 1 && option == 32){
-             if((*message)[*i] == 1){
-                 print("Send", (*message)[*i]);
-                          printf("   ");
-                  *i = *i +1;
-            }
+         if(sb == 1){
+             print_sb(message, i, &option);
          }
      }
 }

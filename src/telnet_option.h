@@ -3,6 +3,6 @@
 
 #include "annexe.h"
 
-void print_option(unsigned char * message, int *i, int* option);
+void print_option(unsigned char* message, int *i, int* option);
 
 #endif

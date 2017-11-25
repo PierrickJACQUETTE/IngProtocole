@@ -1,6 +1,6 @@
 #include "paquet.h"
 
-int parsePaquet(const u_char *truepacket, struct paquet** paquet){
+int parsePaquet(const u_char* truepacket, struct paquet** paquet){
     int parse = 0;
     (*paquet)->ip=(struct ip*)(truepacket+14);
     if((*paquet)->ip->ip_p == IPPROTO_TCP){
@@ -52,7 +52,7 @@ void destroyPaquet(struct paquet** paquet){
     free(*paquet);
 }
 
-void paquet(u_char *args, const struct pcap_pkthdr *hdr, const u_char *truepacket){
+void paquet(u_char* args, const struct pcap_pkthdr* hdr, const u_char* truepacket){
     struct paquet* paquet = malloc(sizeof(struct paquet));
     ERROR_NULL_P(paquet, "parsePaquet : paquet : paquet.c");
     if(paquet != NULL){

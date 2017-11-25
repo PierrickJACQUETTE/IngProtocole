@@ -1,6 +1,6 @@
 #include "telnet_option.h"
 
-void print_option(unsigned char * message, int *i, int* option){
+void print_option(unsigned char* message, int *i, int* option){
     switch(*message){
         case 0:
             print("binary", *message);
@@ -19,6 +19,7 @@ void print_option(unsigned char * message, int *i, int* option){
             break;
         case 5:
             print("status", *message);
+            *option = 5;
             break;
         case 6:
             print("timing mark", *message);
@@ -96,7 +97,7 @@ void print_option(unsigned char * message, int *i, int* option){
             print("X3 PAD", *message);
             break;
         case 31:
-            print("window size", *message);
+            print("negotiate about window size", *message);
             break;
         case 32:
             print("terminal speed", *message);
