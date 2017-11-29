@@ -20,16 +20,21 @@
 #define CYAN 36
 #define DEFAULT 0
 
+/**
+ * structure du corps d un message telnet
+ */
 struct telnet{
-    unsigned char * message;
-    int size_telnet;
+    unsigned char * message;        //corps
+    int size_telnet;                //taille du corps
 };
 
+/**
+ * structure du paquet telnet
+ */
 struct paquet {
-    struct ether_header* ethernet;
-    struct ip* ip;
-    struct tcphdr* tcp;
-    struct telnet* telnet;
+    struct ip* ip;          // information ip du paquet
+    struct tcphdr* tcp;     // information tcp du paquet
+    struct telnet* telnet;  // information telnet du paquet
 };
 
 int numero;
