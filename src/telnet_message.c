@@ -60,7 +60,7 @@ void commande(unsigned char* message, int* messageConnu, int* sb){
 }
 
 void print_message(unsigned char** message, int* i){
-    int messageConnu = 1, sb = 0, option = 0;
+    int messageConnu = 1, sb = 0, option = -1;
     commande(&((*message)[*i]), &messageConnu, &sb);
      *i = *i +1;
      if(messageConnu == 1){
