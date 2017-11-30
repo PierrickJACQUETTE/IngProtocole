@@ -147,7 +147,7 @@ void print_option(unsigned char* message, int *i, int* option){
             *option = 35;
             break;
         case 36:
-            print("env option", *message);
+            print("env", *message);
             *option = 36;
             break;
         case 37:
@@ -155,11 +155,11 @@ void print_option(unsigned char* message, int *i, int* option){
             *option = 37;
             break;
         case 38:
-            print("encryption option", *message);
+            print("encryption", *message);
             *option = 38;
             break;
         case 39:
-            print("new env option", *message);
+            print("new environ", *message);
             *option = 39;
             break;
         case 40:
