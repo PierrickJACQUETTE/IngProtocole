@@ -24,7 +24,7 @@
  * structure du corps d un message telnet
  */
 struct telnet{
-    unsigned char * message;        //corps
+    unsigned char* message;        //corps
     int size_telnet;                //taille du corps
 };
 

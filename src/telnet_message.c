@@ -53,7 +53,7 @@ void commande(unsigned char* message, int* messageConnu, int* sb){
             print("Interpret as command", *message);
             break;
         default:
-            *messageConnu=0;
+            *messageConnu = 0;
             printf("%c",*message);
             break;
     }
@@ -65,10 +65,10 @@ void print_message(unsigned char** message, int* i){
      *i = *i +1;
      if(messageConnu == 1){
          print_option(&((*message)[*i]), i, &option);
-         *i = *i +1;
-         printf("   ");
+         *i = *i + 1;
          if(sb == 1){
              print_sb(message, i, &option);
          }
+         printf("   ");
      }
 }

@@ -10,7 +10,7 @@ int pcap(char* fichier){
 
     f = fopen(fichier, "r");
     ERROR_NULL(f, "imposible de lire le fichier : fopen : pcap : pcap.c");
-    capture= pcap_fopen_offline(f, errbuf);
+    capture = pcap_fopen_offline(f, errbuf);
     ERROR_NULL(capture, "impossible d'ouvrir l'interface : pcap_fopen_offline : pcap : pcap.c");
     error = pcap_compile(capture, &fp, "tcp port 23", 0, 0);
     ERROR_SYS(error, "Error : pcap_compile : pcap : pcap.c");
@@ -18,7 +18,7 @@ int pcap(char* fichier){
     ERROR_SYS(error, "Error : pcap_setfilter : pcap : pcap.c");
     printHeader();
 
-    pcap_loop(capture, 0, paquet,NULL);
+    pcap_loop(capture, 0, paquet, NULL);
     ERROR_SYS(error, "Error : pcap_loop : pcap : pcap.c");
 
     pcap_freecode(&fp);
