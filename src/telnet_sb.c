@@ -1,171 +1,5 @@
 #include "telnet_sb.h"
 
-void read8(unsigned char** message, int* i){
-    int8_t t = 0;
-    t = (*message)[*i];
-    *i = *i +1;
-    printf("%d ", (int)(t));
-}
-
-void read16(unsigned char** message, int* i){
-    int16_t t = 0;
-    int j;
-    for(j=1; j>=0; j--){
-        if(j==0){
-            t = (*message)[*i];
-        }else{
-            t = (*message)[*i]<< 4;
-        }
-        *i = *i +1;
-    }
-    printf("%d ", (int)(t));
-}
-
-void read32(unsigned char** message, int* i){
-    int32_t t = 0;
-    int j;
-    for(j=3; j>=0; j--){
-        if(j==0){
-            t = (*message)[*i];
-        }else{
-            t = (*message)[*i]<< 4;
-        }
-        *i = *i +1;
-    }
-    printf("%d ", (int)(t));
-}
-
-void read255(unsigned char** message, int* i, int print){
-    while((*message)[*i] != 255){
-        if(print == 3){
-            read8(message, i);
-        }else if(print == 0){
-            printf("%c", (*message)[*i]);
-            *i = *i +1;
-        }else if(print == 1){
-            printf("%d ", (*message)[*i]);
-            *i = *i +1;
-        }
-    }
-}
-
-void checkZeroOne(unsigned char** message, int* i, char* zero, char* one){
-    if((*message)[*i] == 1){
-        print(one, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 0){
-        print(zero, (*message)[*i]);
-        *i = *i +1;
-    }
-}
-
-void checkZeroUntilTwo(unsigned char** message, int* i, char* zero, char* one, char* two){
-    checkZeroOne(message, i, zero, one);
-    if((*message)[*i] == 2){
-        print(two, (*message)[*i]);
-        *i = *i +1;
-    }
-}
-
-void checkZeroUntilThree(unsigned char** message, int* i, char* zero, char* one, char* two, char* three){
-    checkZeroUntilTwo(message, i, zero, one, two);
-    if((*message)[*i] == 3){
-        print(three, (*message)[*i]);
-        *i = *i +1;
-    }
-}
-
-void checkZeroUntilEight(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight){
-    checkZeroUntilThree(message, i, zero, one, two, three);
-    if((*message)[*i] == 4){
-        print(four, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 5){
-        print(five, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 6){
-        print(six, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 7){
-        print(seven, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 8){
-        print(eight, (*message)[*i]);
-        *i = *i +1;
-    }
-}
-
-void checkEightUntilEleven(unsigned char** message, int* i, char* eight, char* nine, char* ten, char* eleven){
-	if((*message)[*i] == 8){
-        print(eight, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 9){
-        print(nine, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 10){
-        print(ten, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 11){
-        print(eleven, (*message)[*i]);
-        *i = *i +1;
-    }
-}
-
-void check0Until4And8Until11(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four, char* eight, char* nine, char* ten, char* eleven){
-    checkZeroUntilThree(message, i, zero, one, two, three);
-    if((*message)[*i] == 4){
-        print(four, (*message)[*i]);
-        *i = *i +1;
-    }
-    checkEightUntilEleven(message, i, eight, nine, ten, eleven);
-}
-
-void checkOneUntilThree(unsigned char** message, int* i, char* one, char* two, char* three){
-    if((*message)[*i] == 1){
-        print(one, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 2){
-        print(two, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 3){
-        print(three, (*message)[*i]);
-        *i = *i +1;
-    }
-}
-
-void checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven){
-	checkOneUntilThree(message, i, one, two, three);
-	if((*message)[*i] == 4){
-        print(four, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 5){
-        print(five, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 6){
-        print(six, (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 7){
-        print(seven, (*message)[*i]);
-        *i = *i +1;
-    }
-}
-
-void bmReason(unsigned char** message, int* i){
-    if((*message)[*i] == 1){
-        print("bad-choice", (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 2){
-        print("too-long", (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 3){
-        print("wrong length", (*message)[*i]);
-        *i = *i +1;
-    }else if((*message)[*i] == 4){
-        print("other", (*message)[*i]);
-        *i = *i +1;
-    }
-}
-
 void bm(unsigned char** message, int* i){
     if((*message)[*i] == 1){
         print("define", (*message)[*i]);
@@ -181,7 +15,7 @@ void bm(unsigned char** message, int* i){
         print("refuse", (*message)[*i]);
         *i = *i +1;
         read8(message, i);
-        bmReason(message, i);
+        checkOneUntilFour(message, i, "bad-choice", "too-long", "wrong length", "other");
     }else if((*message)[*i] == 4){
         print("litteral", (*message)[*i]);
         *i = *i +1;
@@ -190,31 +24,7 @@ void bm(unsigned char** message, int* i){
         print("please_cancel", (*message)[*i]);
         *i = *i +1;
         read8(message, i);
-        bmReason(message, i);
-    }
-}
-
-void x3Pad(unsigned char** message, int* i){
-    if((*message)[*i] == 0){
-        print("set", (*message)[*i]);
-        *i = *i +1;
-        read255(message, i, 3);
-    }else if((*message)[*i] == 1){
-        print("response set", (*message)[*i]);
-        *i = *i +1;
-        read255(message, i, 3);
-    }else if((*message)[*i] == 2){
-        print("is", (*message)[*i]);
-        *i = *i +1;
-        read255(message, i, 3);
-    }else if((*message)[*i] == 3){
-        print("response is", (*message)[*i]);
-        *i = *i +1;
-        read255(message, i, 3);
-    }else if((*message)[*i] == 4){
-        print("send", (*message)[*i]);
-        *i = *i +1;
-        read255(message, i, 3);
+        checkOneUntilFour(message, i, "bad-choice", "too-long", "wrong length", "other");
     }
 }
 
@@ -304,7 +114,8 @@ void print_sb(unsigned char** message, int* i, int* option){
             read255(message, i, 0);
             break;
         case 30:
-            x3Pad(message, i);
+            checkZeroUntilFour(message, i, "set", "response set", "is", "response is", "send");
+            read255(message, i, 3);
             break;
         case 33:
             checkZeroUntilThree(message, i, "off", "on", "restart-now", "restart-xon");

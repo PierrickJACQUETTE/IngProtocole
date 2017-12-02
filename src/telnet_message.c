@@ -3,6 +3,15 @@
 void commande(unsigned char* message, int* messageConnu, int* sb){
     *sb = 0;
     switch(*message){
+        case 236:
+            print("Eof", *message);
+            break;
+        case 237:
+            print("Susp", *message);
+            break;
+        case 238:
+            print("Abort", *message);
+            break;
         case 240:
             print("Se", *message);
             break;
