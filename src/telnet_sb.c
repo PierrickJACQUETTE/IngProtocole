@@ -120,7 +120,7 @@ void check0Until4And8Until11(unsigned char** message, int* i, char* zero, char* 
     checkEightUntilEleven(message, i, eight, nine, ten, eleven);
 }
 
-void checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven){
+void checkOneUntilThree(unsigned char** message, int* i, char* one, char* two, char* three){
     if((*message)[*i] == 1){
         print(one, (*message)[*i]);
         *i = *i +1;
@@ -130,7 +130,12 @@ void checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, c
     }else if((*message)[*i] == 3){
         print(three, (*message)[*i]);
         *i = *i +1;
-    }else if((*message)[*i] == 4){
+    }
+}
+
+void checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven){
+	checkOneUntilThree(message, i, one, two, three);
+	if((*message)[*i] == 4){
         print(four, (*message)[*i]);
         *i = *i +1;
     }else if((*message)[*i] == 5){
@@ -323,6 +328,18 @@ void print_sb(unsigned char** message, int* i, int* option){
         	checkZeroUntilEight(message, i, "associate", "connect", "device-type", "functions", "is", "reason", "reject", "request", "send");
            	checkZeroUntilEight(message, i, "associate", "connect", "device-type", "functions", "is", "reason", "reject", "request", "send");
            	read255(message, i, 1);
+        	break;
+        case 41 :
+        case 43 :
+        case 45 :
+        case 46 :
+        case 48 :
+        case 49 :
+        case 138 :
+        case 139 :
+        case 140 :
+        	checkOneUntilThree(message, i, "ofb64_IV", "ofb64_IV_ok", "ofb64_IV_bad");
+        	read255(message, i, 1);
         	break;
         case 42:
         	checkOneUntilSeven(message, i, "request", "accept", "reject", "ttable-is", "ttable-rejected", "ttable-ack", "ttable-nack");
