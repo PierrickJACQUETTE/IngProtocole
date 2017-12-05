@@ -63,6 +63,14 @@ void comPort(unsigned char** message, int* i){
     read255(message, i, 1);
 }
 
+void det(unsigned char** message, int* i){
+    checkOneUntilSeven(message, i, "edit_facilities", "erase_facilities", "transmit_facilities", "format_facilities", "move cursor", "skip_to_line", "skip_to_char");
+    checkEightUntilEleven(message, i, "up", "down", "left", "right");
+    checkTwelveUntilTwenty(message, i, "home", "line_insert", "line_delete", "char_insert", "char_delete", "read_cursor", "cursor_position", "reverse_tab", "transmit_screen");
+    checkTwentyOneUtilThirty(message, i, "transmit_unprotected", "transmit_line", "transmit_field", "transmit_rest_of_screen", "transmit_rest_of_line", "transmit_rest_of_field", "transmit_modified", "data_transmit", "erase screen", "erase_line");
+    checkThirtyOneUtilFortyOne(message, i, "erase_field", "erase_rest_of_screen", "erase_rest_of_line", "erase_rest_of_field", "erase_unprotected", "format_date", "repeat", "suppress_protection", "field_separator", "fn", "error");
+    read255(message, i, 1);
+}
 
 void print_sb(unsigned char** message, int* i, int* option){
     switch((*option)){
@@ -72,6 +80,9 @@ void print_sb(unsigned char** message, int* i, int* option){
         case 35:
             checkZeroOne(message, i, "is", "send");
             read255(message, i, 0);
+            break;
+        case 7:
+            read255(message, i, 1);
             break;
         case 10:
         case 12:
@@ -93,6 +104,9 @@ void print_sb(unsigned char** message, int* i, int* option){
             break;
         case 19:
             bm(message, i);
+            break;
+        case 20:
+            det(message, i);
             break;
         case 22:
             read255(message, i, 1);
@@ -159,6 +173,11 @@ void print_sb(unsigned char** message, int* i, int* option){
         case 44:
         	comPort(message, i);
         	break;
+        case 47:
+            checkZeroUntilFour(message, i, "start-server", "stop-server", "req-start-server", "req-stop-server", "req");
+            checkEightUntilNine(message, i, "resp-start-server", "resp-stop-server");
+            read255(message, i, 1);
+            break;
         default:
             break;
     }
