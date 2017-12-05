@@ -49,8 +49,9 @@ void read255(unsigned char** message, int* i, int print);
 * @param i       indice courant de lecture
 * @param zero    texte a afficher si 0
 * @param one     texte a afficher si 1
+* @return        1 si corresponde sinon 0
 */
-void checkZeroOne(unsigned char** message, int* i, char* zero, char* one);
+int checkZeroOne(unsigned char** message, int* i, char* zero, char* one);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -59,8 +60,9 @@ void checkZeroOne(unsigned char** message, int* i, char* zero, char* one);
 * @param zero    texte a afficher si 0
 * @param one     texte a afficher si 1
 * @param two     texte a afficher si 2
+* @return        1 si corresponde sinon 0
 */
-void checkZeroUntilTwo(unsigned char** message, int* i, char* zero, char* one, char* two);
+int checkZeroUntilTwo(unsigned char** message, int* i, char* zero, char* one, char* two);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -70,8 +72,9 @@ void checkZeroUntilTwo(unsigned char** message, int* i, char* zero, char* one, c
 * @param one     texte a afficher si 1
 * @param two     texte a afficher si 2
 * @param three   texte a afficher si 3
+* @return        1 si corresponde sinon 0
 */
-void checkZeroUntilThree(unsigned char** message, int* i, char* zero, char* one, char* two, char* three);
+int checkZeroUntilThree(unsigned char** message, int* i, char* zero, char* one, char* two, char* three);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -82,8 +85,9 @@ void checkZeroUntilThree(unsigned char** message, int* i, char* zero, char* one,
 * @param two     texte a afficher si 2
 * @param three   texte a afficher si 3
 * @param four    texte a afficher si 4
+* @return        1 si corresponde sinon 0
 */
-void checkZeroUntilFour(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four);
+int checkZeroUntilFour(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four);
 
 
 /**
@@ -99,8 +103,9 @@ void checkZeroUntilFour(unsigned char** message, int* i, char* zero, char* one, 
 * @param six     texte a afficher si 6
 * @param seven   texte a afficher si 7
 * @param eight   texte a afficher si 8
+* @return        1 si corresponde sinon 0
 */
-void checkZeroUntilEight(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight);
+int checkZeroUntilEight(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -115,8 +120,9 @@ void checkZeroUntilEight(unsigned char** message, int* i, char* zero, char* one,
 * @param nine    texte a afficher si 9
 * @param ten     texte a afficher si 10
 * @param eleven  texte a afficher si 11
+* @return        1 si corresponde sinon 0
 */
-void check0Until4And8Until11(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four, char* eight, char* nine, char* ten, char* eleven);
+int check0Until4And8Until11(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four, char* eight, char* nine, char* ten, char* eleven);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -125,8 +131,9 @@ void check0Until4And8Until11(unsigned char** message, int* i, char* zero, char* 
 * @param one     texte a afficher si 1
 * @param two     texte a afficher si 2
 * @param three   texte a afficher si 3
+* @return        1 si corresponde sinon 0
 */
-void checkOneUntilThree(unsigned char** message, int* i, char* one, char* two, char* three);
+int checkOneUntilThree(unsigned char** message, int* i, char* one, char* two, char* three);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -136,8 +143,9 @@ void checkOneUntilThree(unsigned char** message, int* i, char* one, char* two, c
 * @param two     texte a afficher si 2
 * @param three   texte a afficher si 3
 * @param four    texte a afficher si 4
+* @return        1 si corresponde sinon 0
 */
-void checkOneUntilFour(unsigned char** message, int* i, char* one, char* two, char* three, char* four);
+int checkOneUntilFour(unsigned char** message, int* i, char* one, char* two, char* three, char* four);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -150,8 +158,9 @@ void checkOneUntilFour(unsigned char** message, int* i, char* one, char* two, ch
 * @param five    texte a afficher si 5
 * @param six     texte a afficher si 6
 * @param seven   texte a afficher si 7
+* @return        1 si corresponde sinon 0
 */
-void checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven);
+int checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -159,8 +168,9 @@ void checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, c
 * @param i       indice courant de lecture
 * @param eight   texte a afficher si 8
 * @param nine    texte a afficher si 9
+* @return        1 si corresponde sinon 0
 */
-void checkEightUntilNine(unsigned char** message, int* i, char* eight, char* nine);
+int checkEightUntilNine(unsigned char** message, int* i, char* eight, char* nine);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -170,8 +180,9 @@ void checkEightUntilNine(unsigned char** message, int* i, char* eight, char* nin
 * @param nine    texte a afficher si 9
 * @param ten     texte a afficher si 10
 * @param eleven  texte a afficher si 11
+* @return        1 si corresponde sinon 0
 */
-void checkEightUntilEleven(unsigned char** message, int* i, char* eight, char* nine, char* ten, char* eleven);
+int checkEightUntilEleven(unsigned char** message, int* i, char* eight, char* nine, char* ten, char* eleven);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -186,8 +197,9 @@ void checkEightUntilEleven(unsigned char** message, int* i, char* eight, char* n
 * @param eighteen  texte a afficher si 18
 * @param nineteen  texte a afficher si 19
 * @param twenty    texte a afficher si 20
+* @return        1 si corresponde sinon 0
 */
-void checkTwelveUntilTwenty(unsigned char** message, int* i, char* twelve, char* thirteen, char* fourteen, char* fifteen, char* sixteen, char* seventeen, char* eighteen, char* nineteen, char* twenty);
+int checkTwelveUntilTwenty(unsigned char** message, int* i, char* twelve, char* thirteen, char* fourteen, char* fifteen, char* sixteen, char* seventeen, char* eighteen, char* nineteen, char* twenty);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -203,8 +215,9 @@ void checkTwelveUntilTwenty(unsigned char** message, int* i, char* twelve, char*
 * @param eight   texte a afficher si 28
 * @param nine    texte a afficher si 29
 * @param thirty  texte a afficher si 30
+* @return        1 si corresponde sinon 0
 */
-void checkTwentyOneUtilThirty(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight, char* nine, char* thirty);
+int checkTwentyOneUtilThirty(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight, char* nine, char* thirty);
 
 /**
 * permet d afficher un texte personnaliser en fonction de l octet lu
@@ -221,7 +234,8 @@ void checkTwentyOneUtilThirty(unsigned char** message, int* i, char* one, char* 
 * @param nine    texte a afficher si 39
 * @param forty   texte a afficher si 40
 * @param fortyOne texte a afficher si 41
+* @return        1 si corresponde sinon 0
 */
-void checkThirtyOneUtilFortyOne(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight, char* nine, char* forty, char* fortyOne);
+int checkThirtyOneUtilFortyOne(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight, char* nine, char* forty, char* fortyOne);
 
 #endif

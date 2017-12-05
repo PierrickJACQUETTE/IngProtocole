@@ -72,6 +72,58 @@ void det(unsigned char** message, int* i){
     read255(message, i, 1);
 }
 
+void command(unsigned char** message, int* i){
+    if((*message)[*i] == 251){
+        print("will", (*message)[*i]);
+        *i = *i +1;
+    }else if((*message)[*i] == 252){
+        print("wont", (*message)[*i]);
+        *i = *i +1;
+    }else if((*message)[*i] == 253){
+        print("do", (*message)[*i]);
+        *i = *i +1;
+    }else if((*message)[*i] == 254){
+        print("dont", (*message)[*i]);
+        *i = *i +1;
+    }
+}
+
+void linemode(unsigned char** message, int* i){
+    if((*message)[*i] == 1){
+        print("mode", (*message)[*i]);
+        *i = *i +1;
+        checkZeroUntilFour(message, i, "default", "edit", "trapsig", "echo", "mode_ack");
+        read255(message, i, 1);
+    }else if((*message)[*i] == 2){
+        print("forwardmask", (*message)[*i]);
+        *i = *i +1;
+        command(message, i);
+        read255(message, i, 0);
+    }else if((*message)[*i] == 3){
+        print("slc", (*message)[*i]);
+        *i = *i +1;
+        while((*message)[*i] != 255){
+            if(checkZeroUntilEight(message, i, "default", "slc_synch", "slc_brk", "slc_ip", "slc_ao", "slc_ayt", "slc_eor", "slc_abort", "slc_eof") == 1);
+            else if(checkEightUntilEleven(message, i, "slc_eof", "slc_susp", "slc_ec", "slc_el") == 1);
+            else if(checkTwelveUntilTwenty(message, i, "slc_ew", "slc_rp", "slc_lnext", "slc_xon", "slc_xoff", "slc_forw1", "slc_forw2", "slc_mcl", "slc_mcr") == 1);
+            else if(checkTwentyOneUtilThirty(message, i, "slc_mcwl", "slc_mcwr", "slc_mcbol", "slc_mceol", "slc_insrt", "slc_over", "slc_ecr", "slc_ewr", "slc_ebol", "slc_eeol") == 1);
+            else if((*message)[*i] == 32){
+                print("slc_flushout", (*message)[*i]);
+                *i = *i +1;
+            }else if((*message)[*i] == 64){
+                print("slc_flushin", (*message)[*i]);
+                *i = *i +1;
+            }else if((*message)[*i] == 128){
+                print("slc_ack", (*message)[*i]);
+                *i = *i +1;
+            }else{
+                printf("%d ", (*message)[*i]);
+                *i = *i +1;
+            }
+        }
+    }
+}
+
 void print_sb(unsigned char** message, int* i, int* option){
     switch((*option)){
         case 5:
@@ -134,6 +186,9 @@ void print_sb(unsigned char** message, int* i, int* option){
         case 33:
             checkZeroUntilThree(message, i, "off", "on", "restart-now", "restart-xon");
             read8(message, i);
+            break;
+        case 34:
+            linemode(message, i);
             break;
         case 36 :
             checkZeroUntilTwo(message, i, "is", "send", "info");
