@@ -38,6 +38,7 @@ struct paquet {
 };
 
 int numero;
+int verbose;
 
 #define ERROR_NULL(a,str) if (a == NULL) {fprintf(stderr, "\n%s\n\n", str); return EXIT_FAILURE;}
 #define ERROR_NULL_P(a,str) if (a == NULL) {fprintf(stderr, "\n%s\n\n", str);}

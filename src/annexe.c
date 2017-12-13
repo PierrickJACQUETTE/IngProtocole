@@ -1,7 +1,11 @@
 #include "annexe.h"
 
 void print(char* chaine, int value){
-	printf(" %s (%d) ", chaine, value);
+	if(verbose==1){
+		printf(" %s (%d) ", chaine, value);
+	}else{
+		printf(" %d", value);
+	}
 }
 
 void printHeader(){
