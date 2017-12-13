@@ -53,7 +53,11 @@ void read255(unsigned char** message, int* i, int print){
 		if(print == 3){
 			read8(message, i);
 		}else if(print == 0){
-			printf("%c", (*message)[*i]);
+			if((*message)[*i] >= 32 && (*message)[*i] <= 126){
+				printf("%c",(*message)[*i]);
+			}else{
+				printf("%d ",(*message)[*i]);
+			}
 			*i = *i +1;
 		}else if(print == 1){
 			printf("%d ", (*message)[*i]);
@@ -223,7 +227,7 @@ int checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, ch
 	return 0;
 }
 
-int checkTwelveUntilTwenty(unsigned char** message, int* i, char* twelve, char* thirteen, char* fourteen, char* fifteen, char* sixteen, char* seventeen, char* eighteen, char* nineteen, char* twenty){
+int checkTwelveUntilFifteen(unsigned char** message, int* i, char* twelve, char* thirteen, char* fourteen, char* fifteen){
 	if((*message)[*i] == 12){
 		print(twelve, (*message)[*i]);
 		*i = *i +1;
@@ -240,7 +244,14 @@ int checkTwelveUntilTwenty(unsigned char** message, int* i, char* twelve, char* 
 		print(fifteen, (*message)[*i]);
 		*i = *i +1;
 		return 1;
-	}else if((*message)[*i] == 16){
+	}
+	return 0;
+}
+
+
+int checkTwelveUntilTwenty(unsigned char** message, int* i, char* twelve, char* thirteen, char* fourteen, char* fifteen, char* sixteen, char* seventeen, char* eighteen, char* nineteen, char* twenty){
+	checkTwelveUntilFifteen(message, i, twelve, thirteen, fourteen, fifteen);
+	if((*message)[*i] == 16){
 		print(sixteen, (*message)[*i]);
 		*i = *i +1;
 		return 1;

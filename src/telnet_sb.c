@@ -196,6 +196,9 @@ void print_sb(unsigned char** message, int* i, int* option){
             break;
         case 37:
             checkZeroUntilThree(message, i, "is", "send", "reply", "name");
+            checkZeroUntilEight(message, i, "null", "kerberos_v4", "kerberos_v5", "spx", "mink", "srp", "rsa", "ssl", "unassigned");
+            checkEightUntilEleven(message, i, "unassigned", "unassigned", "loki", "ssa");
+            checkTwelveUntilFifteen(message, i, "kea_sj", "kea_sj_integ", "dss", "ntlm");
             read255(message, i, 0);
             break;
         case 38:

@@ -192,6 +192,18 @@ int checkEightUntilEleven(unsigned char** message, int* i, char* eight, char* ni
 * @param thirteen  texte a afficher si 13
 * @param fourteen  texte a afficher si 14
 * @param fifteen   texte a afficher si 15
+* @return        1 si corresponde sinon 0
+*/
+int checkTwelveUntilFifteen(unsigned char** message, int* i, char* twelve, char* thirteen, char* fourteen, char* fifteen);
+
+/**
+* permet d afficher un texte personnaliser en fonction de l octet lu
+* @param message le texte à lire
+* @param i       indice courant de lecture
+* @param twelve    texte a afficher si 12
+* @param thirteen  texte a afficher si 13
+* @param fourteen  texte a afficher si 14
+* @param fifteen   texte a afficher si 15
 * @param sixteen   texte a afficher si 16
 * @param seventeen texte a afficher si 17
 * @param eighteen  texte a afficher si 18

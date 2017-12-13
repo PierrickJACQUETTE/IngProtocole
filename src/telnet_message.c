@@ -63,7 +63,11 @@ void commande(unsigned char* message, int* messageConnu, int* sb){
             break;
         default:
             *messageConnu = 0;
-            printf("%c",*message);
+            if(*message >= 32 && *message <= 126){
+                printf("%c",*message);
+            }else{
+                printf("%d ",*message);
+            }
             break;
     }
 }
