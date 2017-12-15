@@ -14,7 +14,7 @@ int parsePaquet(const u_char* truepacket, struct paquet** paquet){
             parse = 1;
         }
     }else{
-        printf("ccc\n");
+		fprintf(stderr, "Paquet non reconnu comme etant du protocole telnet\n");
     }
     return parse;
 }
