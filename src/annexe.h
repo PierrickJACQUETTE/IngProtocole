@@ -44,7 +44,8 @@ void read32(unsigned char** message, int* i);
 void read255(unsigned char** message, int* i, int print);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param zero    texte a afficher si 0
@@ -54,7 +55,8 @@ void read255(unsigned char** message, int* i, int print);
 int checkZeroOne(unsigned char** message, int* i, char* zero, char* one);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param zero    texte a afficher si 0
@@ -65,7 +67,8 @@ int checkZeroOne(unsigned char** message, int* i, char* zero, char* one);
 int checkZeroUntilTwo(unsigned char** message, int* i, char* zero, char* one, char* two);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param zero    texte a afficher si 0
@@ -77,7 +80,8 @@ int checkZeroUntilTwo(unsigned char** message, int* i, char* zero, char* one, ch
 int checkZeroUntilThree(unsigned char** message, int* i, char* zero, char* one, char* two, char* three);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param zero    texte a afficher si 0
@@ -91,7 +95,8 @@ int checkZeroUntilFour(unsigned char** message, int* i, char* zero, char* one, c
 
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param zero    texte a afficher si 0
@@ -108,7 +113,8 @@ int checkZeroUntilFour(unsigned char** message, int* i, char* zero, char* one, c
 int checkZeroUntilEight(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param zero    texte a afficher si 0
@@ -125,7 +131,8 @@ int checkZeroUntilEight(unsigned char** message, int* i, char* zero, char* one, 
 int check0Until4And8Until11(unsigned char** message, int* i, char* zero, char* one, char* two, char* three, char* four, char* eight, char* nine, char* ten, char* eleven);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param one     texte a afficher si 1
@@ -136,7 +143,8 @@ int check0Until4And8Until11(unsigned char** message, int* i, char* zero, char* o
 int checkOneUntilThree(unsigned char** message, int* i, char* one, char* two, char* three);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param one     texte a afficher si 1
@@ -148,7 +156,8 @@ int checkOneUntilThree(unsigned char** message, int* i, char* one, char* two, ch
 int checkOneUntilFour(unsigned char** message, int* i, char* one, char* two, char* three, char* four);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param one     texte a afficher si 1
@@ -163,7 +172,8 @@ int checkOneUntilFour(unsigned char** message, int* i, char* one, char* two, cha
 int checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param eight   texte a afficher si 8
@@ -173,7 +183,8 @@ int checkOneUntilSeven(unsigned char** message, int* i, char* one, char* two, ch
 int checkEightUntilNine(unsigned char** message, int* i, char* eight, char* nine);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param eight   texte a afficher si 8
@@ -185,7 +196,8 @@ int checkEightUntilNine(unsigned char** message, int* i, char* eight, char* nine
 int checkEightUntilEleven(unsigned char** message, int* i, char* eight, char* nine, char* ten, char* eleven);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param twelve    texte a afficher si 12
@@ -197,7 +209,8 @@ int checkEightUntilEleven(unsigned char** message, int* i, char* eight, char* ni
 int checkTwelveUntilFifteen(unsigned char** message, int* i, char* twelve, char* thirteen, char* fourteen, char* fifteen);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param twelve    texte a afficher si 12
@@ -214,7 +227,8 @@ int checkTwelveUntilFifteen(unsigned char** message, int* i, char* twelve, char*
 int checkTwelveUntilTwenty(unsigned char** message, int* i, char* twelve, char* thirteen, char* fourteen, char* fifteen, char* sixteen, char* seventeen, char* eighteen, char* nineteen, char* twenty);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param one     texte a afficher si 21
@@ -232,7 +246,8 @@ int checkTwelveUntilTwenty(unsigned char** message, int* i, char* twelve, char* 
 int checkTwentyOneUtilThirty(unsigned char** message, int* i, char* one, char* two, char* three, char* four, char* five, char* six, char* seven, char* eight, char* nine, char* thirty);
 
 /**
-* permet d afficher un texte personnaliser en fonction de l octet lu
+* verifie que la sous-commande soit correcte
+* fait un affichage personnalise si elle l est  en fonction de l octet lu
 * @param message le texte à lire
 * @param i       indice courant de lecture
 * @param one     texte a afficher si 31
