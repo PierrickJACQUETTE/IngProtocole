@@ -8,7 +8,7 @@ int pcap(char* fichier){
     int error;
     numero = 0;
 
-    f = fopen(fichier, "r");
+    f = fopen(fichier, "r+");
     ERROR_NULL(f, "imposible de lire le fichier : fopen : pcap : pcap.c");
     capture = pcap_fopen_offline(f, errbuf);
     ERROR_NULL(capture, "impossible d'ouvrir l'interface : pcap_fopen_offline : pcap : pcap.c");
